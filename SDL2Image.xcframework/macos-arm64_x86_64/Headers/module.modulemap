@@ -1,0 +1,6 @@
+module SDL2Image {
+    header "SDL_image.h"
+    export *
+    link "SDL2"
+    link "SDL2_image"
+}

@@ -1,16 +1,18 @@
-// swift-tools-version:5.6
+// swift-tools-version:5.7
 import PackageDescription
 
 let package = Package(
     name: "SDL",
     platforms: [
-        .macOS(.v11),
+        .macOS(.v13),
         .iOS(.v13),
         .tvOS(.v13),
     ],
     products: [
         .library(name: "SDL",
                  targets: ["SDL"]),
+        .library(name: "SDLImage",
+                targets: ["SDL2Image"]),
     ],
     targets: [
         .target(name: "SDL",
@@ -21,6 +23,7 @@ let package = Package(
                 path: "Sources/SDL2"),
         .testTarget(name: "SDLTests", dependencies: ["SDL"]),
         .binaryTarget(name: "SDL2", path: "SDL2.xcframework"),
+        .binaryTarget(name: "SDL2Image", path: "SDL2Image.xcframework"),
         .systemLibrary(
             name: "CSDL2",
             pkgConfig: "sdl2",
